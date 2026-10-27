@@ -201,3 +201,108 @@ public class MenuExample {
 ## ⚡ Java Exam Quick Tips
 * **Null Pointer Exception:** If your menu lets users pick options in any order, always check if your array is `null` before trying to loop through it!
 * **String Comparisons:** If your menu uses text options instead of numbers, use `choiceStr.equals("yes")` **never** `choiceStr == "yes"`.
+
+
+
+import java.util.Scanner;
+
+public class MethodsLab {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Task 1: Call greetUser()
+        greetUser();
+        System.out.println();
+
+        // Task 2: Arithmetic Methods
+        System.out.print("Enter two numbers: ");
+        int num1 = input.nextInt();
+        int num2 = input.nextInt();
+
+        System.out.println("Addition: " + add(num1, num2));
+        System.out.println("Subtraction: " + subtract(num1, num2));
+        System.out.println("Multiplication: " + multiply(num1, num2));
+        System.out.println("Division: " + divide((double) num1, (double) num2));
+        System.out.println();
+
+        // Task 3: Factorial
+        System.out.print("Enter a number for factorial: ");
+        int factNum = input.nextInt();
+        System.out.println("Factorial: " + factorial(factNum));
+        System.out.println();
+
+        // Task 4: Sum of Array Elements
+        int[] numbers = {10, 20, 15, 20, 10}; // Initialized with 5 numbers
+        System.out.println("Sum of array elements: " + sumArray(numbers));
+        System.out.println();
+
+        // Task 5: Prime Number Check
+        System.out.print("Enter a number to check prime: ");
+        int primeNum = input.nextInt();
+        if (isPrime(primeNum)) {
+            System.out.println(primeNum + " is prime.");
+        } else {
+            System.out.println(primeNum + " is not prime.");
+        }
+
+        input.close();
+    }
+
+    // Task 1: greetUser()
+    public static void greetUser() {
+        System.out.println("Hello, welcome to the Math Program!");
+    }
+
+    // Task 2: Arithmetic Methods
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public static double divide(double a, double b) {
+        if (b == 0) {
+            System.out.println("Error: Division by zero.");
+            return 0.0;
+        }
+        return a / b;
+    }
+
+    // Task 3: factorial(int)
+    public static int factorial(int n) {
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    // Task 4: sumArray(int[])
+    public static int sumArray(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    // Task 5: isPrime(int)
+    public static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
